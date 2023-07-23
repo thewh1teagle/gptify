@@ -1,0 +1,4 @@
+spotipy
+openai
+tqdm
+python-dotenv
