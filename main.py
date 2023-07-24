@@ -25,7 +25,7 @@ def get_songs_list(prompt: str):
     functions = [
         {
             "name": "get_songs_name_list",
-            "description": "Generate songs names based on prompt, 10 to 30",
+            "description": "Generate songs names based on prompt, 15 to 30",
             "parameters": {
                 "type": "object",
                 "properties": {
