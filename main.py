@@ -9,12 +9,12 @@ import spotipy
 from dotenv import load_dotenv
 import os
 
-load_dotenv()
+load_dotenv(dotenv_path='.env')
 
 openai.api_key = os.getenv('OPENAI_TOKEN')
 CLIENT_ID = os.getenv('CLIENT_ID')
 CLIENT_SECRET = os.getenv('CLIENT_SECRET')
-REDIRECT_URI = os.getenv('CLIENT_REDIRECT_URI')
+REDIRECT_URI = os.getenv('REDIRECT_URI')
 
 SCOPE = "user-library-read user-library-modify app-remote-control streaming playlist-modify-public playlist-modify-private playlist-read-collaborative playlist-read-private user-read-playback-state user-modify-playback-state user-read-currently-playing"
 
@@ -64,7 +64,7 @@ def get_songs_list(prompt: str):
 
 def main():
     while True:
-        prompt = input('What playlist do you want to generate? (press q to exit)')
+        prompt = input('What playlist do you want to generate? (press q to exit) ')
         if prompt == 'q':
             break
         print(f'Sending prompt: {prompt}')
@@ -88,3 +88,5 @@ def main():
         except:
             pass
         webbrowser.open(playlist_url)
+
+main()
