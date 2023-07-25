@@ -25,7 +25,7 @@ def get_songs_list(prompt: str):
     functions = [
         {
             "name": "get_songs_name_list",
-            "description": "Generate songs names based on prompt, 15 to 30",
+            "description": "Generate songs names and title based on prompt, 15 to 30",
             "parameters": {
                 "type": "object",
                 "properties": {
@@ -41,6 +41,7 @@ def get_songs_list(prompt: str):
                         "description": "Title for the playlist I will create for that songs"
                     }
                 },
+                "required": ["names", "title"]
             },
         }
     ]
@@ -51,7 +52,7 @@ def get_songs_list(prompt: str):
         function_call="auto",
     )
     response_message = response["choices"][0]["message"]
-    
+    print(response)
     try:
         args = json.loads(response_message['function_call']['arguments'])
         names = args['names']
